@@ -30,3 +30,13 @@ The site consists of eight HTML pages, one shared stylesheet (`style.css`), one 
 ## Project status
 
 Initial visual prototype for discussion with Cora and Steve. Not yet production-ready or an online booking/payment service.
+
+
+## November 2026 About / branding update
+- Added the original CBArt logo as `assets/cbart-original-logo.png`.
+- Expanded `about.html` content (rendered by `site.js`) with Cora and Steve's story, their bios, and all five instructor profiles.
+- The people photos are sourced by HTTPS links from `images.groovetech.io` as shown on CBArt's original About page. They are **not** embedded locally, so they need internet access and may be affected if CBArt changes its image hosting.
+- Original source: https://cbartstudios.com/about-us
+- Text is condensed from the current bios to avoid changing biographical facts. Check with the studio before treating it as final public copy.
+
+To update GitHub, upload **the contents** of this folder to the repository root, replacing matching files. No DNS or domain changes needed.
