@@ -44,3 +44,11 @@ To update GitHub, upload **the contents** of this folder to the repository root,
 
 ## November 14 update
 This ZIP includes the real Cora and Steve image in the About page hero, and redesigned Classes and Workshops & Camps pages. Dates, fees and exact schedules are deliberately not invented; all registration links point to the current CBArt website. The site is a public prototype, not the official business site.
+
+
+## Latest update — Why CBArt?
+
+- The About page now has a dedicated **Why CBArt?** section after the instructors, retaining the seven paragraphs provided by CBArt (including the bold closing paragraph), with four small editorial value cards alongside them.
+- The homepage philosophy banner now highlights the CBArt wording about creativity having no age limit and links to the full statement.
+- No biographies, photographs, logo, class offerings, navigation or other pages were changed in this update.
+- Upload **all files and the assets folder contents**, replacing the existing ones. In this release, the actual changes are only in `site.js` and `style.css`.
