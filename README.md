@@ -40,3 +40,7 @@ Initial visual prototype for discussion with Cora and Steve. Not yet production-
 - Text is condensed from the current bios to avoid changing biographical facts. Check with the studio before treating it as final public copy.
 
 To update GitHub, upload **the contents** of this folder to the repository root, replacing matching files. No DNS or domain changes needed.
+
+
+## November 14 update
+This ZIP includes the real Cora and Steve image in the About page hero, and redesigned Classes and Workshops & Camps pages. Dates, fees and exact schedules are deliberately not invented; all registration links point to the current CBArt website. The site is a public prototype, not the official business site.
