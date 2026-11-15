@@ -52,3 +52,8 @@ This ZIP includes the real Cora and Steve image in the About page hero, and rede
 - The homepage philosophy banner now highlights the CBArt wording about creativity having no age limit and links to the full statement.
 - No biographies, photographs, logo, class offerings, navigation or other pages were changed in this update.
 - Upload **all files and the assets folder contents**, replacing the existing ones. In this release, the actual changes are only in `site.js` and `style.css`.
+
+## Mission and newsletter update (November 2026)
+- Added CBArt's official mission statement verbatim on the homepage, after the introductory strip.
+- Added a newsletter invitation above the footer on every page. The button currently links to the existing CBArt website, which displays its newsletter signup. This is not a working in-site email capture form; do not claim subscribers can submit without visiting the existing site.
+- Changes are only in `site.js` and `style.css`.

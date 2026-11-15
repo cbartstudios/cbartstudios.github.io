@@ -122,3 +122,13 @@
  .about-hero-merged h1{font-size:clamp(49px,10vw,76px)}
  .about-hero-merged .about-hero-photo{min-height:0;aspect-ratio:3/2}
 }
+
+/* The official CBArt mission and newsletter invitation */
+.mission-spotlight{position:relative;display:grid;grid-template-columns:minmax(220px,.75fr) minmax(0,1.25fr);gap:clamp(20px,5vw,90px);align-items:center;padding:clamp(48px,6vw,92px) 6vw;background:#f6eee1;overflow:hidden}
+.mission-heading{position:relative;z-index:1}.mission-heading h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(45px,5vw,76px);letter-spacing:-.05em;line-height:1.05;margin:15px 0}.mission-heading h2 i{color:var(--blue)}
+.mission-spotlight>p{font-family:'Playfair Display',Georgia,serif;font-size:clamp(19px,2.2vw,30px);line-height:1.5;margin:0;max-width:900px;position:relative;z-index:1}
+.mission-mark{position:absolute;font-size:225px;right:-18px;bottom:-108px;color:#f3d9a5;opacity:.5;line-height:1}
+.newsletter-invite{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(255px,.7fr);gap:30px;align-items:center;background:#dce6fc;padding:clamp(45px,6vw,78px) 6vw;border-top:8px solid var(--yellow)}
+.newsletter-copy h2{font-size:clamp(43px,5.5vw,72px);line-height:1.02;letter-spacing:-.05em;margin:17px 0}.newsletter-copy h2 i{font-family:'Playfair Display',Georgia,serif;color:var(--blue)}
+.newsletter-copy p{max-width:590px;font-size:17px;line-height:1.6;margin:0}.newsletter-action{display:flex;align-items:flex-start;flex-direction:column;gap:15px}.newsletter-action>a{text-align:center}.newsletter-action>span{font-size:12px;color:#393c46;line-height:1.45;max-width:360px}
+@media(max-width:760px){.mission-spotlight,.newsletter-invite{grid-template-columns:1fr}.mission-spotlight{gap:8px}.newsletter-invite{gap:25px}.newsletter-action>a{width:100%}}
