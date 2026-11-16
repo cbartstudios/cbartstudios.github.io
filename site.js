@@ -23,6 +23,14 @@ const home = `<main>
 ${ribbon}
 <section class="mission-spotlight" aria-labelledby="mission-title"><div class="mission-heading"><span class="eyebrow">THE HEART OF CBART</span><h2 id="mission-title">OUR <i>MISSION.</i></h2></div><p>Our mission is to inspire free-thinking and creativity in individuals of all ages through the exploration, mixing and blending of art forms, styles, cultures and languages.</p><span class="mission-mark" aria-hidden="true">✳</span></section>
 <section class="section offerings" id="explore"><div class="section-heading"><div><span class="eyebrow">01 / PICK YOUR CREATIVE ADVENTURE</span><h2>GOOD IDEAS<br><i>START MESSY.</i></h2></div><p>Come for the art. Stay for the people, the confidence, and the wonderfully unexpected results.</p></div><div class="offer-grid">${card('01','LITTLE MAKERS','Classes','Weekly art classes for toddlers, kids, and juniors.','classes.html','pink',img.paint)}${card('02','TRY SOMETHING NEW','Workshops<br>& Camps','Themed workshops and seasonal creative camps.','workshops.html','yellow',img.studio)}${card('03','CELEBRATE DIFFERENTLY','Parties<br>& Events','Birthdays, private gatherings, and special creative occasions.','parties.html','mint',img.color)}${card('04','GROWN-UP PLAYTIME','Teens<br>& Adults','Explore drawing, painting, fiber arts, and more.','workshops.html','lavender',img.tools)}</div></section>
+<section class="section studio-video-section" id="studio-video" aria-labelledby="studio-video-heading">
+  <div class="section-heading studio-video-heading"><div><span class="eyebrow">BEHIND THE BRUSHSTROKES</span><h2 id="studio-video-heading">CBART STUDIOS<br><i>IN ACTION.</i></h2></div><p>Take a look inside CBArt Studios through the video featured on the original website.</p></div>
+  <div class="studio-video-shell">
+    <video id="cbart-video" controls playsinline preload="none" aria-label="CBArt Studios introduction video"></video>
+    <div class="studio-video-overlay" id="cbart-video-overlay"><span class="eyebrow">CREATIVITY IN ACTION</span><button type="button" class="studio-video-play" id="cbart-video-play"><span aria-hidden="true">▶</span> Play CBArt's video</button><small>3 min 13 sec · Click to play</small></div>
+    <p class="studio-video-error" id="cbart-video-error" role="status" hidden>We couldn't load the original video here. <a href="https://cbartstudios.com/" target="_blank" rel="noopener noreferrer">Watch it on CBArt's existing website ↗</a></p>
+  </div>
+</section>
 <section class="manifesto"><div class="manifesto-label">THE CBART PHILOSOPHY</div><p>CREATIVITY HAS <span>NO AGE LIMIT.</span></p><div class="manifesto-summary">Everyone has something wonderful to discover through art.</div><div class="manifesto-end"><a href="about.html#why-cbart">WHY CBART? EXPLORE OUR PHILOSOPHY ↗</a> <span>✳</span></div></section>
 <section class="section story-block"><div class="story-visual"><img src="https://images.groovetech.io/juQYGmHGhjt6CC07zfIG91zHF0aREWZU3KgoSwZiBng/rs:fit:0:0:0/g:no:0:0/c:0:0/aHR0cHM6Ly9hc3NldHMuZ3Jvb3ZlYXBwcy5jb20vaW1hZ2VzLzVmMjRkNjA3NWRjODJkMDAzZGNkZDUzMi8xNjkxMzUwODc0X0NvcmFhbmRTdGV2ZUJyYW5kSW1hZ2UwODA2MjAyMy5qcGc.webp" alt="Cora Bracho-Troconis and Steve Leeds together" loading="lazy"/><span class="story-tag">ART. CULTURE. SCIENCE. & A LITTLE CHAOS.</span></div><div class="story-text"><span class="eyebrow">02 / PEOPLE BEFORE PERFECTION</span><h2>MEET THE<br><i>CREATIVE SPARK.</i></h2><p>Founded by <strong>Cora Bracho-Troconis and Steve Leeds</strong>, CBArt Studios grew from a home art garage into a creative community with a permanent studio in Superior.</p><p>From a first brushstroke to a brand-new hobby, this is a place to try, discover, and surprise yourself.</p>${a('about.html','Get to know us')}</div></section>
 <section class="section community-preview"><div class="section-heading"><div><span class="eyebrow">03 / MORE THAN A STUDIO</span><h2>THE ART OF<br><i>SHOWING UP.</i></h2></div><p>Making art together is half the magic. Discover events, gatherings, and the creative community around CBArt.</p></div><div class="community-grid"><div class="community-image" style="background-image:url('${img.color}')"></div><div class="community-tile"><span class="large-star">✳</span><span class="eyebrow">LOCAL. CREATIVE. CONNECTED.</span><h3>COME FOR<br>THE ART.<br>FIND YOUR<br>PEOPLE.</h3>${a('community.html','Explore our community','coral')}</div></div></section>
@@ -93,3 +101,39 @@ const contact = `<main>${pageTop('CONTACT / FIND US','COME ON<br><i>IN.</i>','Qu
 const pages={home,classes,workshops,parties,giftcards,community,about,contact};
 ROOT.innerHTML=header+(pages[current]||home)+newsletter+footer;
 document.querySelector('.nav-toggle').addEventListener('click',ev=>{const navEl=document.querySelector('.navigation');const open=navEl.classList.toggle('open');ev.currentTarget.setAttribute('aria-expanded',String(open));});
+
+// Load the existing GrooveVideo HLS stream on demand, without downloading the file to GitHub.
+// HLS cross-origin playback depends on GrooveVideo allowing requests from github.io.
+if (current === 'home') {
+  const video = document.getElementById('cbart-video');
+  const playButton = document.getElementById('cbart-video-play');
+  const overlay = document.getElementById('cbart-video-overlay');
+  const errorBox = document.getElementById('cbart-video-error');
+  const source = 'https://s.groovevideo.com/public/162863/eMNxq0eSnEgkn3ogfdlq/playlist.m3u8';
+  const showError = () => { errorBox.hidden = false; overlay.hidden = true; video.hidden = true; };
+  const startVideo = () => {
+    overlay.hidden = true;
+    video.hidden = false;
+    video.addEventListener('error', showError, { once: true });
+    if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = source;
+      video.play().catch(showError);
+    } else {
+      const loadHls = () => {
+        if (!window.Hls || !window.Hls.isSupported()) return showError();
+        const hls = new window.Hls();
+        hls.on(window.Hls.Events.ERROR, (_event, data) => { if (data.fatal) { hls.destroy(); showError(); } });
+        hls.on(window.Hls.Events.MANIFEST_PARSED, () => video.play().catch(showError));
+        hls.loadSource(source);
+        hls.attachMedia(video);
+      };
+      if (window.Hls) return loadHls();
+      const script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/hls.js@1.5.20/dist/hls.min.js';
+      script.onload = loadHls;
+      script.onerror = showError;
+      document.head.appendChild(script);
+    }
+  };
+  playButton.addEventListener('click', startVideo, { once: true });
+}

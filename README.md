@@ -57,3 +57,7 @@ This ZIP includes the real Cora and Steve image in the About page hero, and rede
 - Added CBArt's official mission statement verbatim on the homepage, after the introductory strip.
 - Added a newsletter invitation above the footer on every page. The button currently links to the existing CBArt website, which displays its newsletter signup. This is not a working in-site email capture form; do not claim subscribers can submit without visiting the existing site.
 - Changes are only in `site.js` and `style.css`.
+
+
+## New: original CBArt homepage video (Nov 15 update)
+A “CBArt Studios in Action” click-to-play section was added to the homepage after the offerings cards. The video uses the GrooveVideo `.m3u8` playlist discovered on CBArt’s original site and loads `hls.js` on demand in browsers without built-in HLS playback. The stream is **not** copied into this repository. Playback depends on the external GrooveVideo host allowing playback from GitHub Pages (CORS, hotlink policies and ongoing availability), which could not be verified here. An error message with a link to the original homepage appears if playback fails. No other pages were redesigned.
