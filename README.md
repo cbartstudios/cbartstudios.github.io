@@ -1,9 +1,16 @@
-# CBArt Studios — Simplified Homepage Update
+# CBArt Studios — Calmer Homepage Update
 
-This update simplifies **only the homepage**. Other website pages, including About and the instructor biographies, are unchanged from the latest video package.
+This version simplifies **only the homepage**. It preserves the existing About, Classes, Workshops & Camps, Parties, Community, Gift Cards and Contact pages, including the original logo, portraits, biographies and Why CBArt section.
 
-Homepage: keeps the headline, original logo, four offerings, the CBArt video, the exact mission, founders' photo and introduction, plus newsletter and footer. Removes the slogan ribbon, duplicated philosophy billboard, community promotional block and oversized contact callout. The community page remains in navigation. The video has a still image supplied from the original CBArt video as its preview.
+## What changed
+- One clear welcome headline and two primary navigation buttons
+- Three compact links to Classes, Workshops & Camps, and Parties & Events
+- Smaller original-video section, using the chosen CBArt image as its poster
+- Mission statement preserved word for word
+- Compact founders introduction with the original photo
+- Less prominent newsletter invitation
 
-To upload: replace `site.js` and `style.css` in your GitHub repository, and upload `assets/cbart-video-poster.jpg`. Do not delete other files.
+## Upload
+Upload `site.js` and `style.css` to the **root** of your existing `cbartstudios.github.io` repository, replacing the old files. Existing `assets/` can remain unchanged. The complete ZIP also includes the other unchanged pages and images if you'd prefer to upload everything.
 
-Video playback still uses the GrooveVideo HLS URL from the original site. The newsletter button still goes to the existing website until its exact subscription link is available.
+The original site `cbartstudios.com` is not modified. The demo stays publicly accessible at `cbartstudios.github.io`.
